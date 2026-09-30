@@ -2,7 +2,10 @@
 # Stick Reels setup for a fresh Ubuntu 24.04 server (AWS EC2).
 #
 #   sudo bash deploy/setup.sh <api-hostname> [public-site-url]
-#   e.g. sudo bash deploy/setup.sh 43-205-166-13.sslip.io https://stick-reels.vercel.app
+#   e.g. sudo bash deploy/setup.sh stick-reels.43-205-166-13.sslip.io https://stick-reels.vercel.app
+#
+# Shares the EC2 box with TurtleReels: Stick Reels listens on port 5001 and adds its own Caddy site
+# file (/etc/caddy/sites/stick-reels.caddy) instead of replacing the Caddyfile.
 #
 # Installs Node 22, uv + Python, a virtual display (Xvfb) for turtle graphics, and Caddy for
 # automatic HTTPS; runs the API as a systemd service. The web frontend is hosted on Vercel, which
@@ -59,7 +62,7 @@ echo "==> Production settings in server/.env"
 set_env() {
   if grep -q "^$1=" "$ENV_FILE"; then sed -i "s#^$1=.*#$1=$2#" "$ENV_FILE"; else echo "$1=$2" >> "$ENV_FILE"; fi
 }
-set_env PORT 5000
+set_env PORT 5001                 # TurtleReels uses 5000 on the same box
 set_env HOST 127.0.0.1
 set_env CLIENT_URL ""
 set_env SECURE_COOKIES true
@@ -69,9 +72,9 @@ set_env UV_BIN "$UV"
 chown "$APP_USER:$APP_USER" "$ENV_FILE" && chmod 600 "$ENV_FILE"
 
 echo "==> Smoke test: render a tiny Short on the virtual display"
-as_app "cd '$APP_DIR' && xvfb-run -a '$UV' run python -m engine.render --category mandala --out /tmp/tr-smoke.mp4 \
+as_app "cd '$APP_DIR' && xvfb-run -a '$UV' run python -m engine.render --category sword_duel --out /tmp/sr-smoke.mp4 \
   --width 270 --height 480 --fps 12 --draw-seconds 2 --hold-seconds 0.2" | tail -n 1
-rm -f /tmp/tr-smoke.mp4 /tmp/tr-smoke.jpg
+rm -f /tmp/sr-smoke.mp4 /tmp/sr-smoke.jpg
 
 echo "==> systemd service"
 cat > /etc/systemd/system/stick-reels.service <<EOF
@@ -98,15 +101,20 @@ systemctl enable stick-reels >/dev/null
 systemctl restart stick-reels
 
 echo "==> Caddy site for https://$HOST"
-cat > /etc/caddy/Caddyfile <<EOF
+# Each app on this box owns one file in /etc/caddy/sites; the Caddyfile only imports them.
+mkdir -p /etc/caddy/sites
+cat > /etc/caddy/sites/stick-reels.caddy <<EOF
 $HOST {
 	encode gzip
 	request_body {
 		max_size 50MB
 	}
-	reverse_proxy 127.0.0.1:5000
+	reverse_proxy 127.0.0.1:5001
 }
 EOF
+touch /etc/caddy/Caddyfile
+grep -q '^import sites/\*.caddy' /etc/caddy/Caddyfile || printf '\nimport sites/*.caddy\n' >> /etc/caddy/Caddyfile
+caddy validate --adapter caddyfile --config /etc/caddy/Caddyfile >/dev/null
 systemctl reload caddy 2>/dev/null || systemctl restart caddy
 
 sleep 3
