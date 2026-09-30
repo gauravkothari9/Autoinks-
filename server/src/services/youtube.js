@@ -16,9 +16,13 @@ function oauthClient(redirectUri) {
   return new google.auth.OAuth2(config.google.clientId, config.google.clientSecret, redirectUri);
 }
 
-/** `state` ties the Google redirect back to the user who started it (prevents login CSRF). */
+/**
+ * `state` ties the Google redirect back to the user who started it (prevents login CSRF).
+ * `select_account` always shows Google's account/channel picker, so a user with several channels
+ * picks the one to upload to instead of Google silently reusing the signed-in account.
+ */
 export function authUrl(state, redirectUri) {
-  return oauthClient(redirectUri).generateAuthUrl({ access_type: 'offline', prompt: 'consent', scope: SCOPES, state });
+  return oauthClient(redirectUri).generateAuthUrl({ access_type: 'offline', prompt: 'select_account consent', scope: SCOPES, state });
 }
 
 export async function handleCallback(userId, code, redirectUri) {
