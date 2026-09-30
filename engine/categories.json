@@ -1,0 +1,1042 @@
+[
+  {
+    "id": "sword_duel",
+    "name": "Sword Duel",
+    "description": "Two stickmen clash swords under the moon until one is disarmed.",
+    "hashtags": [
+      "stickman",
+      "sword fight",
+      "stick fight",
+      "animation",
+      "epic battle"
+    ],
+    "titles": [
+      "Epic Stickman Sword Duel",
+      "Who Wins This Sword Fight?",
+      "Stickman Sword Battle Under the Moon",
+      "This Sword Duel Ends Brutally",
+      "Stick Figure Samurai Showdown"
+    ],
+    "group": "Action"
+  },
+  {
+    "id": "staff_battle",
+    "name": "Staff Battle",
+    "description": "Bo staffs spin and crack in a two-stickman showdown.",
+    "hashtags": [
+      "stickman",
+      "bo staff",
+      "staff fight",
+      "martial arts",
+      "stick fight"
+    ],
+    "titles": [
+      "Stickman Bo Staff Battle",
+      "Staff Fight Showdown",
+      "Who Wins the Staff Battle?",
+      "Crack! Stick Figure Staff Duel",
+      "Martial Arts Staff Fight"
+    ],
+    "group": "Action"
+  },
+  {
+    "id": "laser_duel",
+    "name": "Laser Duel",
+    "description": "Glowing laser swords clash in a neon stick-figure duel.",
+    "hashtags": [
+      "stickman",
+      "laser sword",
+      "sword fight",
+      "sci fi",
+      "epic battle"
+    ],
+    "titles": [
+      "Stickman Laser Sword Duel",
+      "Neon Laser Sword Battle",
+      "This Laser Duel Is Epic",
+      "Glowing Swords Clash",
+      "Sci-Fi Stick Figure Duel"
+    ],
+    "group": "Action"
+  },
+  {
+    "id": "kung_fu",
+    "name": "Kung Fu Fight",
+    "description": "Punches, high kicks and flying kicks in a stick-figure dojo battle.",
+    "hashtags": [
+      "stickman",
+      "kung fu",
+      "martial arts",
+      "stick fight",
+      "fight animation"
+    ],
+    "titles": [
+      "Stickman Kung Fu Showdown",
+      "That Flying Kick Though",
+      "Stick Figure Dojo Battle",
+      "Kung Fu Stickmen Go All Out",
+      "Martial Arts Stick Fight"
+    ],
+    "group": "Action"
+  },
+  {
+    "id": "boxing",
+    "name": "Boxing",
+    "description": "Jabs, hooks and uppercuts in the ring, ending in a knockout.",
+    "hashtags": [
+      "stickman",
+      "boxing",
+      "knockout",
+      "boxing match",
+      "fight"
+    ],
+    "titles": [
+      "Stickman Boxing Knockout",
+      "That Uppercut Though",
+      "Stick Figure Boxing Match",
+      "K.O. in the Ring",
+      "Who Gets Knocked Out?"
+    ],
+    "group": "Action"
+  },
+  {
+    "id": "one_vs_all",
+    "name": "One vs All",
+    "description": "One stickman takes on wave after wave of attackers.",
+    "hashtags": [
+      "stickman",
+      "one vs all",
+      "fight scene",
+      "action",
+      "martial arts"
+    ],
+    "titles": [
+      "One Stickman vs Everyone",
+      "He Took Them All Down",
+      "Stickman Army Fight",
+      "Who's Next?",
+      "One vs All: Stick Figure Brawl"
+    ],
+    "group": "Action"
+  },
+  {
+    "id": "parkour",
+    "name": "Parkour Run",
+    "description": "A stickman sprints across the city, vaulting walls and flipping over gaps.",
+    "hashtags": [
+      "stickman",
+      "parkour",
+      "freerunning",
+      "flip",
+      "animation"
+    ],
+    "titles": [
+      "Stickman Parkour Run",
+      "He Flipped Over That Gap",
+      "Stick Figure Freerunning Through the City",
+      "Parkour Stickman Never Stops",
+      "Can You Keep Up With This Runner?"
+    ],
+    "group": "Action"
+  },
+  {
+    "id": "zombie_escape",
+    "name": "Zombie Escape",
+    "description": "A parkour runner outruns a zombie horde across the rooftops.",
+    "hashtags": [
+      "stickman",
+      "zombie",
+      "parkour",
+      "escape",
+      "chase"
+    ],
+    "titles": [
+      "Stickman Escapes the Zombies",
+      "Run! Zombie Chase",
+      "Parkour vs Zombies",
+      "Can He Outrun Them?",
+      "Stick Figure Zombie Escape"
+    ],
+    "group": "Action"
+  },
+  {
+    "id": "archery",
+    "name": "Archery",
+    "description": "Arrow after arrow at the target until a perfect bullseye.",
+    "hashtags": [
+      "stickman",
+      "archery",
+      "bullseye",
+      "bow and arrow",
+      "trick shot"
+    ],
+    "titles": [
+      "Stickman Archery Bullseye",
+      "Perfect 10 Archery",
+      "Stick Figure Robin Hood",
+      "Can He Hit the Bullseye?",
+      "Satisfying Archery Shots"
+    ],
+    "group": "Action"
+  },
+  {
+    "id": "ninja_fruit",
+    "name": "Ninja Fruit",
+    "description": "A ninja slices flying fruit with throwing stars.",
+    "hashtags": [
+      "stickman",
+      "ninja",
+      "fruit ninja",
+      "satisfying",
+      "shuriken"
+    ],
+    "titles": [
+      "Stickman Ninja Slices Fruit",
+      "Ninja Stars vs Fruit",
+      "Satisfying Fruit Slicing",
+      "Perfect Ninja Combo",
+      "Stick Figure Fruit Ninja"
+    ],
+    "group": "Action"
+  },
+  {
+    "id": "laser_dodge",
+    "name": "Laser Dodge",
+    "description": "Duck, jump and matrix-lean through a hall of lasers.",
+    "hashtags": [
+      "stickman",
+      "laser",
+      "dodge",
+      "matrix",
+      "agent"
+    ],
+    "titles": [
+      "Stickman Dodges Every Laser",
+      "Laser Maze Stick Figure",
+      "Matrix Dodge!",
+      "Too Easy for This Agent",
+      "Could You Dodge These Lasers?"
+    ],
+    "group": "Action"
+  },
+  {
+    "id": "basketball",
+    "name": "Hoops",
+    "description": "Dribbles, jump shots and slam dunks, with a live score counter.",
+    "hashtags": [
+      "stickman",
+      "basketball",
+      "slam dunk",
+      "nba",
+      "trick shot"
+    ],
+    "titles": [
+      "Stickman Slam Dunk",
+      "Stick Figure Basketball Trick Shots",
+      "Swish! Stickman Can't Miss",
+      "Nothing but Net",
+      "Stickman Dunk Contest"
+    ],
+    "group": "Sports"
+  },
+  {
+    "id": "soccer",
+    "name": "Football Juggling",
+    "description": "Keepy-uppies with feet, knee and head, finished with a volley into the net.",
+    "hashtags": [
+      "stickman",
+      "football",
+      "soccer",
+      "freestyle football",
+      "goal"
+    ],
+    "titles": [
+      "Stickman Football Freestyle",
+      "How Many Touches Can He Do?",
+      "Keepy Uppy Then a Screamer",
+      "Stick Figure Football Skills",
+      "Juggling Into a Perfect Goal"
+    ],
+    "group": "Sports"
+  },
+  {
+    "id": "penalty_kick",
+    "name": "Penalty Kick",
+    "description": "Penalty after penalty: does the keeper guess right?",
+    "hashtags": [
+      "stickman",
+      "penalty",
+      "football",
+      "goalkeeper",
+      "soccer"
+    ],
+    "titles": [
+      "Stickman Penalty Shootout",
+      "Goal or Save?",
+      "Keeper Guessed Wrong",
+      "Penalty Kick Showdown",
+      "Stick Figure Football Penalties"
+    ],
+    "group": "Sports"
+  },
+  {
+    "id": "skateboard",
+    "name": "Skate Tricks",
+    "description": "Ollies, kickflips, shuvits and rail grinds at a neon skatepark.",
+    "hashtags": [
+      "stickman",
+      "skateboarding",
+      "kickflip",
+      "skate",
+      "sk8"
+    ],
+    "titles": [
+      "Stickman Skate Session",
+      "Clean Kickflip, Stick Figure Style",
+      "Stickman Grinds the Rail",
+      "Skateboard Tricks in 2D",
+      "Stick Figure Skater Lands Everything"
+    ],
+    "group": "Sports"
+  },
+  {
+    "id": "snowboard",
+    "name": "Snowboard",
+    "description": "Backflips, 360s and grabs off snow kickers and rails.",
+    "hashtags": [
+      "stickman",
+      "snowboarding",
+      "backflip",
+      "winter sports",
+      "snow"
+    ],
+    "titles": [
+      "Stickman Snowboard Tricks",
+      "Backflip on a Snowboard",
+      "Stick Figure Shreds the Snow",
+      "Stomped It!",
+      "Snowboard Session in 2D"
+    ],
+    "group": "Sports"
+  },
+  {
+    "id": "race",
+    "name": "Sprint Race",
+    "description": "Four stickmen sprint for the finish line. Who breaks the tape?",
+    "hashtags": [
+      "stickman",
+      "race",
+      "sprint",
+      "who wins",
+      "photo finish"
+    ],
+    "titles": [
+      "Stickman Sprint Race: Pick a Lane",
+      "Who Wins This Race?",
+      "Photo Finish Stickman Dash",
+      "Pick Your Runner Before It Starts",
+      "Stick Figure 100m Final"
+    ],
+    "group": "Sports"
+  },
+  {
+    "id": "hurdles",
+    "name": "Hurdles",
+    "description": "Four stickmen race over the hurdles to the finish.",
+    "hashtags": [
+      "stickman",
+      "hurdles",
+      "track and field",
+      "race",
+      "athletics"
+    ],
+    "titles": [
+      "Stickman Hurdles Race",
+      "Who Clears the Hurdles First?",
+      "110m Hurdles Stick Figure",
+      "Pick Your Hurdler",
+      "Photo Finish Over the Hurdles"
+    ],
+    "group": "Sports"
+  },
+  {
+    "id": "tennis",
+    "name": "Tennis",
+    "description": "Long rallies across the net, each point ending with a winner.",
+    "hashtags": [
+      "stickman",
+      "tennis",
+      "rally",
+      "tennis match",
+      "sports"
+    ],
+    "titles": [
+      "Stickman Tennis Rally",
+      "Epic Tennis Point",
+      "Stick Figure Wimbledon",
+      "Who Wins the Rally?",
+      "Tennis Match in 2D"
+    ],
+    "group": "Sports"
+  },
+  {
+    "id": "ping_pong",
+    "name": "Ping Pong",
+    "description": "Lightning-fast table tennis rallies with a live score.",
+    "hashtags": [
+      "stickman",
+      "ping pong",
+      "table tennis",
+      "rally",
+      "satisfying"
+    ],
+    "titles": [
+      "Stickman Ping Pong Rally",
+      "Fastest Table Tennis Rally",
+      "Stick Figure Ping Pong",
+      "Who Wins This Point?",
+      "Ping Pong Showdown"
+    ],
+    "group": "Sports"
+  },
+  {
+    "id": "golf",
+    "name": "Golf",
+    "description": "Big swings, long drives and the odd hole in one.",
+    "hashtags": [
+      "stickman",
+      "golf",
+      "hole in one",
+      "golf swing",
+      "trick shot"
+    ],
+    "titles": [
+      "Stickman Hole in One",
+      "Stick Figure Golf Swing",
+      "Perfect Golf Shot",
+      "Will It Go In?",
+      "Golf Trick Shots in 2D"
+    ],
+    "group": "Sports"
+  },
+  {
+    "id": "baseball",
+    "name": "Baseball",
+    "description": "Pitch, swing and home run, with fireworks for every homer.",
+    "hashtags": [
+      "stickman",
+      "baseball",
+      "home run",
+      "mlb",
+      "batting"
+    ],
+    "titles": [
+      "Stickman Home Run Derby",
+      "Out of the Park!",
+      "Stick Figure Baseball",
+      "Home Run or Strike?",
+      "Batting Practice in 2D"
+    ],
+    "group": "Sports"
+  },
+  {
+    "id": "cricket",
+    "name": "Cricket",
+    "description": "Sixes, fours and a flying-stumps wicket.",
+    "hashtags": [
+      "stickman",
+      "cricket",
+      "six",
+      "ipl",
+      "batting"
+    ],
+    "titles": [
+      "Stickman Hits a Huge Six",
+      "Cricket Sixes Compilation",
+      "Stick Figure Cricket",
+      "Six, Four or Bowled?",
+      "Stumps Went Flying"
+    ],
+    "group": "Sports"
+  },
+  {
+    "id": "bowling",
+    "name": "Bowling",
+    "description": "Approach, release and pins flying for a strike.",
+    "hashtags": [
+      "stickman",
+      "bowling",
+      "strike",
+      "satisfying",
+      "pins"
+    ],
+    "titles": [
+      "Stickman Bowling Strike",
+      "Satisfying Bowling Strikes",
+      "Stick Figure Bowling",
+      "Strike or Spare?",
+      "All Ten Pins Down"
+    ],
+    "group": "Sports"
+  },
+  {
+    "id": "high_jump",
+    "name": "High Jump",
+    "description": "A flop over the bar, raised higher after every clear.",
+    "hashtags": [
+      "stickman",
+      "high jump",
+      "athletics",
+      "track and field",
+      "fosbury flop"
+    ],
+    "titles": [
+      "Stickman High Jump",
+      "How High Can He Go?",
+      "Fosbury Flop in 2D",
+      "Cleared It!",
+      "Raising the Bar"
+    ],
+    "group": "Sports"
+  },
+  {
+    "id": "weightlifting",
+    "name": "Weightlifting",
+    "description": "Clean and jerk, a little heavier every attempt.",
+    "hashtags": [
+      "stickman",
+      "weightlifting",
+      "clean and jerk",
+      "gym",
+      "strength"
+    ],
+    "titles": [
+      "Stickman Clean and Jerk",
+      "New Weightlifting Record",
+      "Stick Figure Lifts Heavy",
+      "Good Lift!",
+      "How Much Can He Lift?"
+    ],
+    "group": "Sports"
+  },
+  {
+    "id": "trampoline",
+    "name": "Trampoline",
+    "description": "Flips, twists and a double back on the trampoline.",
+    "hashtags": [
+      "stickman",
+      "trampoline",
+      "backflip",
+      "gymnastics",
+      "flips"
+    ],
+    "titles": [
+      "Stickman Trampoline Flips",
+      "Double Backflip on a Trampoline",
+      "Stick Figure Gymnastics",
+      "Stuck the Landing!",
+      "Trampoline Combo"
+    ],
+    "group": "Sports"
+  },
+  {
+    "id": "dance_party",
+    "name": "Dance Crew",
+    "description": "A stickman crew hits synced moves under swinging disco lights.",
+    "hashtags": [
+      "stickman",
+      "dance",
+      "dance crew",
+      "choreography",
+      "disco"
+    ],
+    "titles": [
+      "Stickman Dance Crew in Perfect Sync",
+      "These Stick Figures Can Dance",
+      "Stickman Disco Party",
+      "Synced Dance Moves, Stick Edition",
+      "Stick Figure Dance Challenge"
+    ],
+    "group": "Dance"
+  },
+  {
+    "id": "dance_battle",
+    "name": "Dance Battle",
+    "description": "Two crews trade moves in a street dance-off.",
+    "hashtags": [
+      "stickman",
+      "dance battle",
+      "street dance",
+      "dance crew",
+      "dance off"
+    ],
+    "titles": [
+      "Stickman Dance Battle",
+      "Crew vs Crew Dance Off",
+      "Who Won This Dance Battle?",
+      "Street Dance Showdown",
+      "Stick Figure Dance Off"
+    ],
+    "group": "Dance"
+  },
+  {
+    "id": "breakdance",
+    "name": "Breakdance",
+    "description": "Toprock, headspins, windmills, backflips and a freeze for the crowd.",
+    "hashtags": [
+      "stickman",
+      "breakdance",
+      "bboy",
+      "breaking",
+      "headspin"
+    ],
+    "titles": [
+      "Stickman B-Boy Battle",
+      "Stick Figure Headspin",
+      "Breakdance Stickman Kills It",
+      "That Freeze Though",
+      "Stickman Breaking Session"
+    ],
+    "group": "Dance"
+  },
+  {
+    "id": "moonwalk",
+    "name": "Moonwalk",
+    "description": "Moonwalks, spins, toe stands and a gravity-defying lean.",
+    "hashtags": [
+      "stickman",
+      "moonwalk",
+      "dance",
+      "pop dance",
+      "smooth criminal"
+    ],
+    "titles": [
+      "Stickman Moonwalk",
+      "Smoothest Moonwalk Ever",
+      "That Lean Though",
+      "Stick Figure Pop Dance",
+      "Moonwalking in 2D"
+    ],
+    "group": "Dance"
+  },
+  {
+    "id": "ballet",
+    "name": "Ballet",
+    "description": "Pirouettes, arabesques and grand jetés on a spotlit stage.",
+    "hashtags": [
+      "stickman",
+      "ballet",
+      "ballerina",
+      "dance",
+      "pirouette"
+    ],
+    "titles": [
+      "Stickman Ballet",
+      "Perfect Pirouette",
+      "Stick Figure Ballerina",
+      "Grand Jeté in 2D",
+      "Graceful Ballet Animation"
+    ],
+    "group": "Dance"
+  },
+  {
+    "id": "robot_dance",
+    "name": "Robot Dance",
+    "description": "Robot arms, tutting, arm waves and a glide on a neon grid.",
+    "hashtags": [
+      "stickman",
+      "robot dance",
+      "popping",
+      "tutting",
+      "dance"
+    ],
+    "titles": [
+      "Stickman Robot Dance",
+      "Robot Popping in 2D",
+      "Arm Wave Level 100",
+      "Stick Figure Tutting",
+      "This Robot Can Dance"
+    ],
+    "group": "Dance"
+  },
+  {
+    "id": "workout",
+    "name": "Workout",
+    "description": "Jumping jacks, squats, push-ups and high knees with a rep counter.",
+    "hashtags": [
+      "stickman",
+      "workout",
+      "home workout",
+      "fitness",
+      "exercise"
+    ],
+    "titles": [
+      "Stickman Home Workout",
+      "Do This Workout With the Stickman",
+      "Quick Workout, Stick Figure Style",
+      "Can You Keep Up With These Reps?",
+      "Stickman Fitness Challenge"
+    ],
+    "group": "Fitness"
+  },
+  {
+    "id": "abs_workout",
+    "name": "Abs Workout",
+    "description": "Sit-ups, crunches, mountain climbers and a plank.",
+    "hashtags": [
+      "stickman",
+      "abs workout",
+      "core",
+      "home workout",
+      "fitness"
+    ],
+    "titles": [
+      "Stickman Abs Workout",
+      "Core Workout With the Stickman",
+      "Abs on Fire",
+      "Quick Abs Routine",
+      "Do This Abs Challenge"
+    ],
+    "group": "Fitness"
+  },
+  {
+    "id": "hiit",
+    "name": "HIIT",
+    "description": "Burpees, lunges, star jumps and skaters with a rep counter.",
+    "hashtags": [
+      "stickman",
+      "hiit",
+      "burpees",
+      "cardio",
+      "fitness"
+    ],
+    "titles": [
+      "Stickman HIIT Workout",
+      "Burpee Challenge",
+      "Fat Burning HIIT in 2D",
+      "Can You Keep Up?",
+      "Quick HIIT Session"
+    ],
+    "group": "Fitness"
+  },
+  {
+    "id": "pull_ups",
+    "name": "Pull-ups",
+    "description": "Pull-ups, leg raises and muscle-ups on the bar.",
+    "hashtags": [
+      "stickman",
+      "pull ups",
+      "calisthenics",
+      "muscle up",
+      "street workout"
+    ],
+    "titles": [
+      "Stickman Pull-up Challenge",
+      "Muscle-ups in 2D",
+      "Calisthenics Stick Figure",
+      "Beast Mode on the Bar",
+      "How Many Pull-ups?"
+    ],
+    "group": "Fitness"
+  },
+  {
+    "id": "jump_rope",
+    "name": "Jump Rope",
+    "description": "Bounces, double unders, criss-crosses and one-foot hops.",
+    "hashtags": [
+      "stickman",
+      "jump rope",
+      "skipping",
+      "double unders",
+      "cardio"
+    ],
+    "titles": [
+      "Stickman Jump Rope Tricks",
+      "Double Unders in 2D",
+      "Skipping Challenge",
+      "Jump Rope Record",
+      "Criss-Cross Jump Rope"
+    ],
+    "group": "Fitness"
+  },
+  {
+    "id": "yoga",
+    "name": "Yoga Flow",
+    "description": "A calm flow through warrior, tree, triangle and more, with breathing cues.",
+    "hashtags": [
+      "stickman",
+      "yoga",
+      "yoga flow",
+      "relaxing",
+      "stretch"
+    ],
+    "titles": [
+      "Relaxing Stickman Yoga Flow",
+      "Stretch Along With the Stickman",
+      "Calm Yoga, Stick Figure Style",
+      "A Minute of Yoga",
+      "Breathe and Flow"
+    ],
+    "group": "Fitness"
+  },
+  {
+    "id": "tai_chi",
+    "name": "Tai Chi",
+    "description": "Slow, flowing tai chi forms under a misty moon.",
+    "hashtags": [
+      "stickman",
+      "tai chi",
+      "relaxing",
+      "qigong",
+      "calm"
+    ],
+    "titles": [
+      "Relaxing Stickman Tai Chi",
+      "Tai Chi Flow",
+      "Calm Tai Chi Forms",
+      "Slow Down With Tai Chi",
+      "A Minute of Tai Chi"
+    ],
+    "group": "Fitness"
+  },
+  {
+    "id": "meditation",
+    "name": "Meditation",
+    "description": "A floating meditator and a breathing orb that guides your breath.",
+    "hashtags": [
+      "stickman",
+      "meditation",
+      "breathing exercise",
+      "calm",
+      "relax"
+    ],
+    "titles": [
+      "Breathe With the Stickman",
+      "One Minute Meditation",
+      "Box Breathing Guide",
+      "Calm Your Mind",
+      "Floating Meditation"
+    ],
+    "group": "Fitness"
+  },
+  {
+    "id": "stick_fail",
+    "name": "Stick Fails",
+    "description": "Banana peels, lamp posts and rocks. Stickmen fail, then one finally dodges.",
+    "hashtags": [
+      "stickman",
+      "fail",
+      "funny",
+      "comedy",
+      "fail compilation"
+    ],
+    "titles": [
+      "Stickman Fails Compilation",
+      "Watch Out for the Banana",
+      "Stick Figure Fails That Hurt",
+      "He Didn't See That Pole",
+      "Try Not to Laugh: Stickman Edition"
+    ],
+    "group": "Comedy"
+  },
+  {
+    "id": "cartoon_drops",
+    "name": "Cartoon Drops",
+    "description": "Anvils, pianos and flower pots land on unlucky heads.",
+    "hashtags": [
+      "stickman",
+      "cartoon",
+      "funny",
+      "anvil",
+      "comedy"
+    ],
+    "titles": [
+      "Stickman Gets Flattened",
+      "Watch Out Above!",
+      "Cartoon Anvil Drop",
+      "Look Up!",
+      "Classic Cartoon Fails"
+    ],
+    "group": "Comedy"
+  },
+  {
+    "id": "rake_trap",
+    "name": "Rake Trap",
+    "description": "Step on the rake, get hit in the face. Repeat.",
+    "hashtags": [
+      "stickman",
+      "rake",
+      "funny",
+      "fail",
+      "comedy"
+    ],
+    "titles": [
+      "Stickman Steps on a Rake",
+      "The Rake Always Wins",
+      "Rake to the Face",
+      "He Never Learns",
+      "Classic Rake Fail"
+    ],
+    "group": "Comedy"
+  },
+  {
+    "id": "wet_floor",
+    "name": "Wet Floor",
+    "description": "The sign said wet floor. Nobody listened.",
+    "hashtags": [
+      "stickman",
+      "slip",
+      "funny",
+      "fail",
+      "wet floor"
+    ],
+    "titles": [
+      "Stickman Ignores Wet Floor Sign",
+      "Slippery Floor Fails",
+      "Should Have Read the Sign",
+      "Whoops!",
+      "Wet Floor Wipeouts"
+    ],
+    "group": "Comedy"
+  },
+  {
+    "id": "prank_wars",
+    "name": "Prank Wars",
+    "description": "Chair pulls and jump scares between two stick pranksters.",
+    "hashtags": [
+      "stickman",
+      "prank",
+      "funny",
+      "jump scare",
+      "comedy"
+    ],
+    "titles": [
+      "Stickman Prank Wars",
+      "Chair Pull Prank",
+      "Boo! Jump Scare Prank",
+      "Revenge Prank",
+      "Funniest Stick Pranks"
+    ],
+    "group": "Comedy"
+  },
+  {
+    "id": "guitar_solo",
+    "name": "Guitar Solo",
+    "description": "A rock star shreds, jumps and knee-slides across the stage.",
+    "hashtags": [
+      "stickman",
+      "guitar solo",
+      "rock",
+      "guitar",
+      "music"
+    ],
+    "titles": [
+      "Stickman Guitar Solo",
+      "Epic Rock Solo",
+      "Stick Figure Rock Star",
+      "Knee Slide Guitar Solo",
+      "Shredding in 2D"
+    ],
+    "group": "Music & Life"
+  },
+  {
+    "id": "drummer",
+    "name": "Drummer",
+    "description": "Beats, fills and cymbal crashes behind the kit.",
+    "hashtags": [
+      "stickman",
+      "drums",
+      "drummer",
+      "drum solo",
+      "music"
+    ],
+    "titles": [
+      "Stickman Drum Solo",
+      "Stick Figure Drummer",
+      "Satisfying Drum Beat",
+      "Drum Fill in 2D",
+      "Rock Drummer"
+    ],
+    "group": "Music & Life"
+  },
+  {
+    "id": "dj_set",
+    "name": "DJ Set",
+    "description": "The DJ builds up, counts down and drops the beat on the crowd.",
+    "hashtags": [
+      "stickman",
+      "dj",
+      "edm",
+      "beat drop",
+      "party"
+    ],
+    "titles": [
+      "Stickman DJ Drops the Beat",
+      "Wait for the Drop",
+      "Stick Figure DJ Set",
+      "The Crowd Goes Wild",
+      "Beat Drop in 2D"
+    ],
+    "group": "Music & Life"
+  },
+  {
+    "id": "pancake_chef",
+    "name": "Pancake Chef",
+    "description": "A chef flips pancakes onto a growing stack. Mostly.",
+    "hashtags": [
+      "stickman",
+      "pancakes",
+      "cooking",
+      "chef",
+      "satisfying"
+    ],
+    "titles": [
+      "Stickman Pancake Flips",
+      "Perfect Pancake Stack",
+      "Chef Flip Fail",
+      "Satisfying Pancake Flipping",
+      "Stick Figure Chef"
+    ],
+    "group": "Music & Life"
+  },
+  {
+    "id": "lumberjack",
+    "name": "Lumberjack",
+    "description": "Chop, split, stack. A bearded lumberjack works the woodpile.",
+    "hashtags": [
+      "stickman",
+      "lumberjack",
+      "wood splitting",
+      "satisfying",
+      "axe"
+    ],
+    "titles": [
+      "Stickman Lumberjack",
+      "Satisfying Wood Splitting",
+      "Chop Chop Chop",
+      "Timber!",
+      "Stick Figure Woodcutter"
+    ],
+    "group": "Music & Life"
+  },
+  {
+    "id": "juggler",
+    "name": "Juggler",
+    "description": "Three balls, then four, then five under the big top.",
+    "hashtags": [
+      "stickman",
+      "juggling",
+      "circus",
+      "satisfying",
+      "skills"
+    ],
+    "titles": [
+      "Stickman Juggles 5 Balls",
+      "Satisfying Juggling",
+      "Circus Juggler in 2D",
+      "3, 4, 5 Balls!",
+      "Stick Figure Juggler"
+    ],
+    "group": "Music & Life"
+  }
+]
