@@ -1,4 +1,4 @@
-// Create (or reuse) the Stick Reels EC2 server: key pair, firewall, Ubuntu 24.04 t3.small, Elastic IP.
+// Create (or reuse) the Autoinks EC2 server (its own box, separate from TurtleReels): key pair, firewall, Ubuntu 24.04 t3.small, Elastic IP.
 // Uses the AWS credentials in ~/.aws. Safe to re-run: existing pieces are found by name and reused.
 //
 //   node deploy/aws-provision.mjs
@@ -18,10 +18,10 @@ const {
 } = require('@aws-sdk/client-ec2');
 
 const REGION = process.env.AWS_REGION_TR || 'ap-south-1';
-const NAME = 'stick-reels';
-const KEY_NAME = 'stick-reels-key';
-const KEY_FILE = path.join(os.homedir(), '.ssh', 'stick-reels.pem');
-const SG_NAME = 'stick-reels-sg';
+const NAME = 'autoinks';
+const KEY_NAME = 'autoinks-key';
+const KEY_FILE = path.join(os.homedir(), '.ssh', 'autoinks.pem');
+const SG_NAME = 'autoinks-sg';
 const TYPE = 't3.small';
 const ec2 = new EC2Client({ region: REGION });
 const tag = (Name) => [{ Key: 'Name', Value: Name }, { Key: 'app', Value: NAME }];
@@ -50,7 +50,7 @@ const vpcId = Vpcs[0].VpcId;
 let sg = (await ec2.send(new DescribeSecurityGroupsCommand({ Filters: [{ Name: 'group-name', Values: [SG_NAME] }, { Name: 'vpc-id', Values: [vpcId] }] }))).SecurityGroups[0];
 if (!sg) {
   const { GroupId } = await ec2.send(new CreateSecurityGroupCommand({
-    GroupName: SG_NAME, Description: 'Stick Reels web server', VpcId: vpcId,
+    GroupName: SG_NAME, Description: 'Autoinks web server', VpcId: vpcId,
     TagSpecifications: [{ ResourceType: 'security-group', Tags: tag(SG_NAME) }],
   }));
   sg = { GroupId, IpPermissions: [] };
@@ -67,7 +67,7 @@ if (rules.length) {
   console.log(`Firewall rules added: ${rules.map((r) => `${r[0]} from ${r[1]}`).join(', ')}`);
 }
 
-// 3. instance (reuse a running/stopped one tagged app=stick-reels)
+// 3. instance (reuse a running/stopped one tagged app=autoinks)
 let inst = (await ec2.send(new DescribeInstancesCommand({ Filters: [
   { Name: 'tag:app', Values: [NAME] }, { Name: 'instance-state-name', Values: ['pending', 'running', 'stopping', 'stopped'] },
 ] }))).Reservations.flatMap((r) => r.Instances)[0];
