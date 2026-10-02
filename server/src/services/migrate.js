@@ -7,9 +7,10 @@ export async function migrate() {
   const settings = mongoose.connection.db.collection('settings');
   const indexes = await settings.indexes().catch(() => []);
   if (indexes.some((i) => i.name === 'key_1')) await settings.dropIndex('key_1'); // old singleton key
-  // Drawings got 2x slower: accounts still on the old 20s default move to the new 40s default, once.
-  await settings.updateMany({ drawPace: { $exists: false }, drawSeconds: { $in: [20, null] } }, { $set: { drawSeconds: 40 } });
-  await settings.updateMany({ drawPace: { $exists: false } }, { $set: { drawPace: 2 } });
+  // Drawings got slower (default 20s, then 40s, now 55s): accounts still on an old default move to 55s, once.
+  const before = { $or: [{ drawPace: { $exists: false } }, { drawPace: { $lt: 3 } }] };
+  await settings.updateMany({ ...before, drawSeconds: { $in: [20, 40, null] } }, { $set: { drawSeconds: 55 } });
+  await settings.updateMany(before, { $set: { drawPace: 3 } });
 }
 
 /** Give Shorts, schedules and settings created before accounts existed to the first (admin) user. */
