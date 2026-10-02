@@ -122,7 +122,7 @@ def main():
     p.add_argument("--width", type=int, default=1080)
     p.add_argument("--height", type=int, default=1920)
     p.add_argument("--fps", type=int, default=30)
-    p.add_argument("--draw-seconds", type=float, default=20, help="length of the main drawing or animation")
+    p.add_argument("--draw-seconds", type=float, default=40, help="length of the main drawing or animation")
     p.add_argument("--hold-seconds", type=float, default=3, help="extra time showing the finished picture")
     p.add_argument("--glow", type=float, default=0.55)
     p.add_argument("--crf", type=int, default=18)

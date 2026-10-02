@@ -9,7 +9,8 @@ const settingsSchema = new mongoose.Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true, unique: true },
   userTags: { type: [String], default: [] },
   privacy: { type: String, enum: ['public', 'unlisted', 'private'], default: 'public' },
-  drawSeconds: { type: Number, default: 20, min: 8, max: 55 },
+  drawSeconds: { type: Number, default: 40, min: 8, max: 55 },
+  drawPace: { type: Number, default: 2 }, // 2 = drawSeconds default raised from 20s to 40s (see migrate.js)
   holdSeconds: { type: Number, default: 3, min: 0, max: 5 },
   hookText: { type: Boolean, default: true },
   musicMode: { type: String, enum: ['generated', 'library', 'off'], default: 'generated' },
@@ -35,6 +36,7 @@ export function publicSettings(s, { isAdmin = false, redirectUri } = {}) {
   delete rest._id;
   delete rest.__v;
   delete rest.userId;
+  delete rest.drawPace;
   const { clientId, clientSecret } = config.google;
   const out = {
     ...rest,
