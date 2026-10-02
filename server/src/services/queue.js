@@ -15,6 +15,10 @@ import { isConfigured, uploadShort } from './youtube.js';
 let busy = false;
 
 export const previewPath = (category) => path.join(MEDIA_DIR, 'previews', `${category}.mp4`);
+// Style-card previews: drawn slowly enough to follow. Change PREVIEW_VERSION to re-render them all.
+const PREVIEW_DRAW = { draw: 20, hold: 2 };
+const PREVIEW_VERSION = `draw${PREVIEW_DRAW.draw}-hold${PREVIEW_DRAW.hold}`;
+const previewVersionFile = () => path.join(MEDIA_DIR, 'previews', '.version');
 
 /** Run an engine module (python -m engine.<name>); resolves with its final "done" payload. */
 export function runPython(module, args, onProgress = () => {}) {
@@ -57,8 +61,8 @@ async function renderJob(job) {
   const out = preview ? previewPath(job.category) : path.join(MEDIA_DIR, 'videos', `${job.id}.mp4`);
   const args = ['--category', job.category, '--out', out];
   if (preview) {
-    args.push('--width', '360', '--height', '640', '--fps', '24', '--draw-seconds', '7',
-      '--hold-seconds', '1.5', '--crf', '26', '--no-hook', '--no-music');
+    args.push('--width', '360', '--height', '640', '--fps', '24', '--draw-seconds', String(PREVIEW_DRAW.draw),
+      '--hold-seconds', String(PREVIEW_DRAW.hold), '--crf', '28', '--no-hook', '--no-music');
   } else {
     args.push('--draw-seconds', String(settings.drawSeconds), '--hold-seconds', String(settings.holdSeconds));
     if (settings.hookText) args.push('--hook', await pickQuote(job.userId));
@@ -215,6 +219,9 @@ export async function startQueue() {
   // recover work interrupted by a restart
   await Job.updateMany({ status: { $in: ['rendering', 'encoding'] } }, { status: 'queued', progress: 0 });
   await Job.updateMany({ status: 'uploading' }, { status: 'ready', error: 'Upload interrupted by restart' });
-  await ensurePreviews();
+  // Previews made with older settings are re-rendered once; the old files keep showing until then.
+  const stale = (fs.existsSync(previewVersionFile()) ? fs.readFileSync(previewVersionFile(), 'utf8').trim() : '') !== PREVIEW_VERSION;
+  await ensurePreviews(stale ? categories.map((c) => c.id) : []);
+  if (stale) fs.writeFileSync(previewVersionFile(), PREVIEW_VERSION);
   setInterval(processNext, 5000).unref();
 }

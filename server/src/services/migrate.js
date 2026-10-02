@@ -11,6 +11,9 @@ export async function migrate() {
   const before = { $or: [{ drawPace: { $exists: false } }, { drawPace: { $lt: 3 } }] };
   await settings.updateMany({ ...before, drawSeconds: { $in: [20, 40, null] } }, { $set: { drawSeconds: 55 } });
   await settings.updateMany(before, { $set: { drawPace: 3 } });
+  // Every account draws at least 55s, once (users can lower it again afterwards).
+  await settings.updateMany({ drawPace: 3, drawSeconds: { $lt: 55 } }, { $set: { drawSeconds: 55 } });
+  await settings.updateMany({ drawPace: 3 }, { $set: { drawPace: 4 } });
 }
 
 /** Give Shorts, schedules and settings created before accounts existed to the first (admin) user. */
