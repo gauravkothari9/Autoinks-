@@ -16,7 +16,7 @@ let busy = false;
 
 export const previewPath = (category) => path.join(MEDIA_DIR, 'previews', `${category}.mp4`);
 // Style-card previews: drawn slowly enough to follow. Change PREVIEW_VERSION to re-render them all.
-const PREVIEW_DRAW = { draw: 20, hold: 2 };
+const PREVIEW_DRAW = { draw: 35, hold: 2 };
 const PREVIEW_VERSION = `draw${PREVIEW_DRAW.draw}-hold${PREVIEW_DRAW.hold}`;
 const previewVersionFile = () => path.join(MEDIA_DIR, 'previews', '.version');
 

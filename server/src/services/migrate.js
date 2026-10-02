@@ -14,6 +14,9 @@ export async function migrate() {
   // Every account draws at least 55s, once (users can lower it again afterwards).
   await settings.updateMany({ drawPace: 3, drawSeconds: { $lt: 55 } }, { $set: { drawSeconds: 55 } });
   await settings.updateMany({ drawPace: 3 }, { $set: { drawPace: 4 } });
+  // Slower again: every account draws at least 90s, once.
+  await settings.updateMany({ drawPace: 4, drawSeconds: { $lt: 90 } }, { $set: { drawSeconds: 90 } });
+  await settings.updateMany({ drawPace: 4 }, { $set: { drawPace: 5 } });
 }
 
 /** Give Shorts, schedules and settings created before accounts existed to the first (admin) user. */

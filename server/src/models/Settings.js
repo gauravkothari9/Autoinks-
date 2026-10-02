@@ -9,8 +9,8 @@ const settingsSchema = new mongoose.Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true, unique: true },
   userTags: { type: [String], default: [] },
   privacy: { type: String, enum: ['public', 'unlisted', 'private'], default: 'public' },
-  drawSeconds: { type: Number, default: 55, min: 8, max: 90 },
-  drawPace: { type: Number, default: 4 }, // which drawSeconds default this account has seen (see migrate.js)
+  drawSeconds: { type: Number, default: 90, min: 8, max: 170 },
+  drawPace: { type: Number, default: 5 }, // which drawSeconds default this account has seen (see migrate.js)
   holdSeconds: { type: Number, default: 3, min: 0, max: 5 },
   hookText: { type: Boolean, default: true },
   musicMode: { type: String, enum: ['generated', 'library', 'off'], default: 'generated' },
