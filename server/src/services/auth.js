@@ -6,7 +6,7 @@ import { User } from '../models/User.js';
 import { hasPaidAccess } from './plans.js';
 
 const scrypt = promisify(crypto.scrypt);
-const COOKIE = 'tr_session';
+const COOKIE = config.sessionCookie;
 const SESSION_DAYS = 30;
 const KEYLEN = 64;
 
@@ -85,7 +85,7 @@ export function requireAdmin(req, res, next) {
 
 export function requirePlan(req, res, next) {
   if (!hasPaidAccess(req.user)) {
-    return res.status(402).json({ error: 'This needs an active Stick Reels plan', code: 'plan' });
+    return res.status(402).json({ error: 'This needs an active Autoinks plan', code: 'plan' });
   }
   next();
 }

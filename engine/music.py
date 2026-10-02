@@ -6,8 +6,8 @@ and won't trigger YouTube Content ID claims. Each mood is a small genre recipe: 
 repeats with a varied ending. Tracks start with a one-bar intro, add a drum fill and crash every
 four bars, and hold the tonic at the end so the music resolves while the finale is on screen.
 
-With no mood given, the mood matches the video's style (CATEGORY_MOODS): sword fights get an epic
-score, chases a fast minor pulse, dance styles a funk groove, yoga a slow zen track, and so on.
+With no mood given, the mood matches the video's style (CATEGORY_MOODS): cute drawings get a light
+upbeat or chill track, animals a quirky tune, a robot an electro track, a bonsai a zen one, and so on.
 """
 
 import random
@@ -107,19 +107,20 @@ MOOD_NAMES = list(MOODS)
 
 # The mood each video style gets when no mood is chosen. Ids match engine/categories.json.
 CATEGORY_MOODS = {
-    **dict.fromkeys(["sword_duel", "staff_battle", "laser_duel", "kung_fu", "boxing", "one_vs_all",
-                     "archery"], "epic"),
-    **dict.fromkeys(["parkour", "zombie_escape", "ninja_fruit", "laser_dodge"], "chase"),
-    **dict.fromkeys(["basketball", "soccer", "penalty_kick", "race", "hurdles", "tennis", "ping_pong",
-                     "baseball", "cricket", "high_jump", "trampoline"], "sporty"),
-    **dict.fromkeys(["skateboard", "snowboard", "guitar_solo", "drummer", "lumberjack"], "rock"),
-    **dict.fromkeys(["golf", "bowling", "pancake_chef"], "chill"),
-    **dict.fromkeys(["dance_party", "dance_battle", "breakdance", "moonwalk"], "funky"),
-    **dict.fromkeys(["robot_dance", "dj_set"], "electro"),
-    **dict.fromkeys(["workout", "abs_workout", "hiit", "pull_ups", "jump_rope", "weightlifting"], "workout"),
-    **dict.fromkeys(["yoga", "tai_chi", "meditation"], "zen"),
-    **dict.fromkeys(["stick_fail", "cartoon_drops", "rake_trap", "wet_floor", "prank_wars", "juggler"], "quirky"),
-    "ballet": "elegant",
+    **dict.fromkeys(["mountain_lake", "cottage", "sunflower", "cactus", "windmill", "tulip_vase", "pyramids", "teacup",
+                     "treehouse", "guitar"],
+                    "chill"),
+    **dict.fromkeys(["sunset_beach", "hot_air_balloon", "butterfly", "ice_cream", "cupcake", "rainbow_hills", "sailboat",
+                     "strawberry", "donut", "watermelon", "car", "gift_box", "pizza", "birthday_cake"], "upbeat"),
+    **dict.fromkeys(["cute_cat", "owl", "whale", "fox", "penguin", "panda", "bunny", "frog", "bee", "snail", "octopus",
+                     "dinosaur", "hedgehog", "puppy"], "quirky"),
+    **dict.fromkeys(["lighthouse", "koi_pond", "sea_turtle", "waterfall", "jellyfish"], "calm"),
+    **dict.fromkeys(["rocket", "igloo"], "cosmic"),
+    "robot": "electro",
+    "bonsai": "zen",
+    **dict.fromkeys(["city_night", "campfire", "mushroom_house"], "dreamy"),
+    "volcano": "epic",
+    "castle": "elegant",
 }
 
 

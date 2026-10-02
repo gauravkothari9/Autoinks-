@@ -1,21 +1,8 @@
-"""Frame compositing: gradient background, 2x supersampling, neon glow, quote and watermark overlays."""
+"""Frame compositing: gradient background, 2x supersampling, glow, quote and watermark overlays."""
 
-import numpy as np
 from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter
 
-from .stick import W, Canvas, font, hex_rgb
-
-
-def make_background(size, top, bottom):
-    """Vertical gradient with a soft radial vignette."""
-    w, h = size
-    top, bottom = np.array(hex_rgb(top), float), np.array(hex_rgb(bottom), float)
-    ys = np.linspace(0, 1, h)[:, None, None]
-    grad = np.broadcast_to(top * (1 - ys) + bottom * ys, (h, w, 3)).copy()
-    yy, xx = np.mgrid[0:h, 0:w]
-    dist = np.sqrt(((xx - w / 2) / (w / 2)) ** 2 + ((yy - h / 2) / (h / 2)) ** 2)
-    vignette = np.clip(1.15 - 0.45 * dist, 0.55, 1.0)[..., None]
-    return Image.fromarray(np.clip(grad * vignette, 0, 255).astype(np.uint8), "RGB")
+from .art import W, Canvas, font, make_background
 
 
 class Compositor:
@@ -36,9 +23,10 @@ class Compositor:
         hi = self.base.copy()
         draw(Canvas(hi, self.scale), t)
         img = hi.reduce(self.ss) if self.ss > 1 else hi
-        if self.glow > 0:
+        glow = self.glow * getattr(draw, "glow", 1.0)  # paper drawings turn the glow off
+        if glow > 0:
             small = img.reduce(4).filter(ImageFilter.GaussianBlur(radius=max(2, self.out_w // 160)))
-            bloom = ImageEnhance.Brightness(small.resize(img.size, Image.BILINEAR)).enhance(self.glow * 2)
+            bloom = ImageEnhance.Brightness(small.resize(img.size, Image.BILINEAR)).enhance(glow * 2)
             img = ImageChops.screen(img, bloom)
         if self.overlay is not None:
             img.paste(self.overlay, (0, 0), self.overlay)

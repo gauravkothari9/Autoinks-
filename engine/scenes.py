@@ -1,80 +1,67 @@
-"""Registry of 2D stick-figure scenes.
+"""Registry of drawing scenes.
 
-A scene is a function scene(rng, palette, duration) -> draw(canvas, t). It does all its random
+A scene is a function scene(rng, palette, duration, hold) -> draw(canvas, t). It makes all its random
 choices up front with rng, so draw is a pure function of t and every seed gives a new video.
-Variants of one scene (a boxing ring vs a dojo, a snowboard vs a skateboard) are registered with
-functools.partial. Scene ids must match engine/categories.json.
+Scene ids must match engine/categories.json.
 """
 
-from functools import partial
-
-from .scenes_action import kung_fu, parkour, sword_duel
-from .scenes_action2 import archery, laser_dodge, ninja_fruit, one_vs_all
-from .scenes_comedy import prank_wars, stick_fail
-from .scenes_dance import ballet, breakdance, dance_battle, dance_party, moonwalk, robot_dance
-from .scenes_fitness import jump_rope, meditation, pull_ups, workout, yoga
-from .scenes_life import dj_set, drummer, guitar_solo, juggler, lumberjack, pancake_chef
-from .scenes_sports import basketball, race, skateboard, soccer
-from .scenes_sports2 import (baseball, bowling, cricket, golf, high_jump, penalty, rally, trampoline,
-                             weightlifting)
+from . import drawings, drawings2, drawings3, drawings4
 
 SCENES = {
-    # Action
-    "sword_duel": sword_duel,
-    "staff_battle": partial(sword_duel, weapon="staff"),
-    "laser_duel": partial(sword_duel, weapon="laser"),
-    "kung_fu": kung_fu,
-    "boxing": partial(kung_fu, mode="boxing"),
-    "one_vs_all": one_vs_all,
-    "parkour": parkour,
-    "zombie_escape": partial(parkour, chasers=True),
-    "archery": archery,
-    "ninja_fruit": ninja_fruit,
-    "laser_dodge": laser_dodge,
-    # Sports
-    "basketball": basketball,
-    "soccer": soccer,
-    "penalty_kick": penalty,
-    "skateboard": skateboard,
-    "snowboard": partial(skateboard, snow=True),
-    "race": race,
-    "hurdles": partial(race, hurdles=True),
-    "tennis": partial(rally, kind="tennis"),
-    "ping_pong": partial(rally, kind="pingpong"),
-    "golf": golf,
-    "baseball": baseball,
-    "cricket": cricket,
-    "bowling": bowling,
-    "high_jump": high_jump,
-    "weightlifting": weightlifting,
-    "trampoline": trampoline,
-    # Dance
-    "dance_party": dance_party,
-    "dance_battle": dance_battle,
-    "breakdance": breakdance,
-    "moonwalk": moonwalk,
-    "ballet": ballet,
-    "robot_dance": robot_dance,
-    # Fitness
-    "workout": workout,
-    "abs_workout": partial(workout, kind="abs"),
-    "hiit": partial(workout, kind="hiit"),
-    "pull_ups": pull_ups,
-    "jump_rope": jump_rope,
-    "yoga": yoga,
-    "tai_chi": partial(yoga, style="taichi"),
-    "meditation": meditation,
-    # Comedy
-    "stick_fail": stick_fail,
-    "cartoon_drops": partial(stick_fail, kind="drops"),
-    "rake_trap": partial(stick_fail, kind="rakes"),
-    "wet_floor": partial(stick_fail, kind="wet"),
-    "prank_wars": prank_wars,
-    # Music & Life
-    "guitar_solo": guitar_solo,
-    "drummer": drummer,
-    "dj_set": dj_set,
-    "pancake_chef": pancake_chef,
-    "lumberjack": lumberjack,
-    "juggler": juggler,
+    # Speed Drawing: pen outlines, marker coloring, shading, final touches
+    "mountain_lake": drawings.mountain_lake,
+    "sunset_beach": drawings.sunset_beach,
+    "lighthouse": drawings.lighthouse,
+    "cottage": drawings.cottage,
+    "hot_air_balloon": drawings.hot_air_balloon,
+    "rocket": drawings.rocket,
+    "windmill": drawings2.windmill,
+    "campfire": drawings2.campfire,
+    "volcano": drawings2.volcano,
+    "castle": drawings2.castle,
+    "sailboat": drawings3.sailboat,
+    "rainbow_hills": drawings3.rainbow_hills,
+    "igloo": drawings3.igloo,
+    "pyramids": drawings3.pyramids,
+    "mushroom_house": drawings3.mushroom_house,
+    "waterfall": drawings4.waterfall,
+    "treehouse": drawings4.treehouse,
+    "city_night": drawings4.city_night,
+    # Cute Animals
+    "cute_cat": drawings.cute_cat,
+    "owl": drawings.owl,
+    "koi_pond": drawings.koi_pond,
+    "whale": drawings.whale,
+    "butterfly": drawings.butterfly,
+    "fox": drawings2.fox,
+    "penguin": drawings2.penguin,
+    "panda": drawings2.panda,
+    "sea_turtle": drawings2.sea_turtle,
+    "bunny": drawings3.bunny,
+    "frog": drawings3.frog,
+    "bee": drawings3.bee,
+    "snail": drawings3.snail,
+    "octopus": drawings3.octopus,
+    "dinosaur": drawings4.dinosaur,
+    "hedgehog": drawings4.hedgehog,
+    "jellyfish": drawings4.jellyfish,
+    "puppy": drawings4.puppy,
+    # Plants & Treats
+    "sunflower": drawings.sunflower,
+    "cactus": drawings.cactus,
+    "ice_cream": drawings.ice_cream,
+    "cupcake": drawings2.cupcake,
+    "tulip_vase": drawings2.tulip_vase,
+    "strawberry": drawings3.strawberry,
+    "donut": drawings3.donut,
+    "watermelon": drawings3.watermelon,
+    "pizza": drawings4.pizza,
+    "bonsai": drawings4.bonsai,
+    "birthday_cake": drawings4.birthday_cake,
+    # Things
+    "car": drawings3.car,
+    "teacup": drawings3.teacup,
+    "gift_box": drawings3.gift_box,
+    "guitar": drawings4.guitar,
+    "robot": drawings4.robot,
 }

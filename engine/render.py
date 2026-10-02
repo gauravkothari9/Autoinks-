@@ -1,7 +1,7 @@
-"""Render one 2D stick-figure Short to .mp4.
+"""Render one drawing Short to .mp4.
 
 Usage:
-    python -m engine.render --category sword_duel --out media/videos/x.mp4
+    python -m engine.render --category mountain_lake --out media/videos/x.mp4
 
 Progress is reported on stdout as JSON lines so the Node server can stream it:
     {"event": "progress", "stage": "render", "progress": 0.42}
@@ -19,10 +19,10 @@ from pathlib import Path
 import numpy as np
 from moviepy import AudioFileClip, VideoClip, afx
 
+from .art import PALETTES, Palette
 from .frame import Compositor
 from .music import MOOD_CHOICES, generate_music
 from .scenes import SCENES
-from .stick import PALETTES, Palette
 
 ROOT = Path(__file__).resolve().parent.parent
 AUDIO_TYPES = {".mp3", ".wav", ".m4a", ".aac", ".ogg", ".flac"}
@@ -38,9 +38,9 @@ def render(args):
     rng = random.Random(seed)
     palette = Palette(args.palette or rng.choice(list(PALETTES)))
     hook = None if args.no_hook else (args.hook or rng.choice(QUOTES))  # short quote shown on the video
-    # The action fills the whole video; the scene ends on a finale (victory, bow, cheer) during the hold.
+    # The drawing fills the main time; the hold at the end shows the finished picture.
     duration = args.draw_seconds + args.hold_seconds
-    scene = SCENES[args.category](random.Random(seed), palette, duration)
+    scene = SCENES[args.category](random.Random(seed), palette, duration, hold=args.hold_seconds)
     comp = Compositor((args.width, args.height), palette.background, glow=args.glow,
                       hook_text=hook, watermark=args.watermark)
     total = max(1, round(duration * args.fps))
@@ -48,9 +48,9 @@ def render(args):
     out = Path(args.out).resolve()
     out.parent.mkdir(parents=True, exist_ok=True)
     thumb = out.with_suffix(".jpg")
-    comp.frame(scene, duration * 0.45).save(thumb, quality=90)
+    comp.frame(scene, min(duration, getattr(scene, "thumb_at", duration * 0.45))).save(thumb, quality=90)
 
-    cache = Path(tempfile.mkdtemp(prefix="stickreels_"))
+    cache = Path(tempfile.mkdtemp(prefix="drawreels_"))
     state = {"t": None, "img": None, "done": 0}
 
     def frame_at(t):
@@ -114,7 +114,7 @@ def pick_music(args, rng, seed, duration, cache):
 
 
 def main():
-    p = argparse.ArgumentParser(description="Render a 2D stick-figure Short")
+    p = argparse.ArgumentParser(description="Render a drawing Short")
     p.add_argument("--category", required=True, choices=sorted(SCENES))
     p.add_argument("--out", required=True)
     p.add_argument("--seed", type=int)
@@ -122,8 +122,8 @@ def main():
     p.add_argument("--width", type=int, default=1080)
     p.add_argument("--height", type=int, default=1920)
     p.add_argument("--fps", type=int, default=30)
-    p.add_argument("--draw-seconds", type=float, default=20, help="length of the main action")
-    p.add_argument("--hold-seconds", type=float, default=3, help="extra time for the finale")
+    p.add_argument("--draw-seconds", type=float, default=20, help="length of the main drawing or animation")
+    p.add_argument("--hold-seconds", type=float, default=3, help="extra time showing the finished picture")
     p.add_argument("--glow", type=float, default=0.55)
     p.add_argument("--crf", type=int, default=18)
     p.add_argument("--hook", help="quote text to show (default: random from quotes.json)")

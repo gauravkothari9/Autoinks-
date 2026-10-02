@@ -94,7 +94,7 @@ export default function CreateModal({ category, onClose }) {
         <div className="modal-body">
           <span className="eyebrow">{category.group}</span>
           <h2 id="create-title">Create {category.name}</h2>
-          <p className="muted">{category.description} Every video gets new random moves, colors and music.</p>
+          <p className="muted">{category.description} Every video gets a new picture, colors and music.</p>
 
           <div className="field">
             <span className="label">Tags added to every Short</span>

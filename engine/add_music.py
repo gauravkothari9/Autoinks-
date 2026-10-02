@@ -1,7 +1,7 @@
 """Add background music to an already-rendered Short, in place, without re-encoding the video.
 
 Usage:
-    python -m engine.add_music --video media/videos/x.mp4 [--music generated|library] [--mood auto|calm|...] [--category sword_duel]
+    python -m engine.add_music --video media/videos/x.mp4 [--music generated|library] [--mood auto|calm|...] [--category mountain_lake]
 """
 
 import argparse
@@ -25,7 +25,7 @@ def add_music(video, mode="generated", mood=None, seed=None, music_dir=None, cat
     ffmpeg = imageio_ffmpeg.get_ffmpeg_exe()
     _, duration = imageio_ffmpeg.count_frames_and_secs(str(video))
     rng = random.Random(seed)
-    tmp = Path(tempfile.mkdtemp(prefix="stick-reels_music_"))
+    tmp = Path(tempfile.mkdtemp(prefix="draw-reels_music_"))
     try:
         tracks = library_tracks(music_dir) if mode == "library" else []
         if tracks:

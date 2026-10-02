@@ -417,7 +417,7 @@ function SettingsSection() {
       </div>
       <div className="settings-grid">
         <label>
-          <span className="label">Action length: {settings.drawSeconds}s</span>
+          <span className="label">Drawing length: {settings.drawSeconds}s</span>
           <input {...slider('drawSeconds', 8, 55)} />
         </label>
         <label>

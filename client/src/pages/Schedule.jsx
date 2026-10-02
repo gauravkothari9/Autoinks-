@@ -76,7 +76,7 @@ export default function ScheduleSection() {
       <section className="section-hero">
         <div>
           <h2>Schedule</h2>
-          <p className="muted">Pick days and times. Stick Reels renders a fresh Short before each slot and publishes it on time.</p>
+          <p className="muted">Pick days and times. Autoinks renders a fresh Short before each slot and publishes it on time.</p>
         </div>
         <div className="stats">
           <div><strong>{schedules?.filter((s) => s.enabled).length ?? '–'}</strong><span>active</span></div>

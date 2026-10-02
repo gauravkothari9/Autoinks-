@@ -39,10 +39,10 @@ export default function Dashboard() {
     <>
       <section className="hero">
         <div>
-          <h1>2D stickman Shorts, animated by code</h1>
+          <h1>Drawing Shorts, made by code</h1>
           <p>
-            Pick a style: fights, sports, dance, fitness or comedy. Every video gets new random moves, colors and music,
-            and the finished Short goes to YouTube with a title, description and tags.
+            Pick a style: scenery, cute animals, sweet treats or everyday things. Every video gets a new picture,
+            colors and music, and the finished Short goes to YouTube with a title, description and tags.
           </p>
         </div>
         <div className="stats">
@@ -57,7 +57,7 @@ export default function Dashboard() {
         <div className="banner promo">
           <span>
             <strong>Free account.</strong>{' '}
-            {account.usage.trialLeft ? 'Create 1 trial Short to see what Stick Reels can do.' : 'Your trial Short is used.'}
+            {account.usage.trialLeft ? 'Create 1 trial Short to see what Autoinks can do.' : 'Your trial Short is used.'}
             {' '}Plans start at ₹500/month with YouTube uploads, scheduling and music.
           </span>
           <Link to="/pricing" className="btn primary sm">See plans</Link>

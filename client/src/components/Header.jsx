@@ -58,7 +58,7 @@ export default function Header() {
       <div className="topbar-left">
         <Link to="/" className="brand">
           <img className="logo" src="/logo-mark.png" alt="" />
-          <span>Stick <span className="brand-accent">Reels</span></span>
+          <span>Auto<span className="brand-accent">inks</span></span>
         </Link>
         {account && (
           <nav className="nav">

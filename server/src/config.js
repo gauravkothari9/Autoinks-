@@ -14,6 +14,8 @@ export const config = {
   uvBin: process.env.UV_BIN || 'uv',
   // Session cookies get the Secure flag when the site is served over HTTPS.
   secureCookies: process.env.SECURE_COOKIES === 'true',
+  // Cookies ignore the port, so two installs on one host (e.g. localhost:5000 and :5001) need different names.
+  sessionCookie: process.env.SESSION_COOKIE || 'tr_session',
   // Proxies in front of the app (Caddy, plus Vercel when the frontend proxies /api). Used for client IPs.
   trustProxyHops: Number(process.env.TRUST_PROXY_HOPS || 1),
   razorpay: {

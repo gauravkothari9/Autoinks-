@@ -64,7 +64,7 @@ async function renderJob(job) {
     if (settings.hookText) args.push('--hook', await pickQuote(job.userId));
     else args.push('--no-hook');
     args.push('--music', settings.musicMode, '--music-dir', userMusicDir(job.userId));
-    if (job.trial) args.push('--watermark', 'Stick Reels · free trial');
+    if (job.trial) args.push('--watermark', 'Autoinks · free trial');
     args.push('--mood', settings.musicMood);
   }
   if (job.seed != null) args.push('--seed', String(job.seed));

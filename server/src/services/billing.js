@@ -30,7 +30,7 @@ async function razorpayPlanId(plan, interval) {
     const created = await rzp().plans.create({
       period: interval,
       interval: 1,
-      item: { name: `Stick Reels ${PLANS[plan].name} (${interval})`, amount, currency: 'INR' },
+      item: { name: `Autoinks ${PLANS[plan].name} (${interval})`, amount, currency: 'INR' },
       notes: { plan, interval },
     });
     await BillingPlan.create({ key, razorpayPlanId: created.id });
@@ -54,7 +54,7 @@ export async function createSubscription(user, plan, interval) {
     return {
       subscriptionId: sub.id,
       keyId: config.razorpay.keyId,
-      name: 'Stick Reels',
+      name: 'Autoinks',
       description: `${PLANS[plan].name} plan · ${interval}`,
       prefill: { name: user.name, email: user.email },
     };

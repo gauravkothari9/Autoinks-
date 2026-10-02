@@ -13,7 +13,7 @@ function AuthShell({ title, subtitle, children, footer }) {
   return (
     <div className="auth-page">
       <div className="auth-card">
-        <div className="auth-brand"><img src="/logo.png" alt="Stick Reels" /></div>
+        <div className="auth-brand"><img src="/logo-mark.png" alt="" /><span>Auto<span className="brand-accent">inks</span></span></div>
         <h1>{title}</h1>
         <p className="muted">{subtitle}</p>
         {children}

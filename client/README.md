@@ -1,6 +1,6 @@
-# Stick Reels web app
+# Autoinks web app
 
-The React (Vite) frontend of Stick Reels. It is hosted on **Vercel**, deployed from GitHub. The API runs on AWS; Vercel forwards `/api/*` and `/media/*` to it (see `vercel.json`), so the browser only ever talks to your Vercel address and login cookies work normally.
+The React (Vite) frontend of Autoinks. It is hosted on **Vercel**, deployed from GitHub. The API runs on AWS; Vercel forwards `/api/*` and `/media/*` to it (see `vercel.json`), so the browser only ever talks to your Vercel address and login cookies work normally.
 
 ## Deploy (GitHub → Vercel)
 

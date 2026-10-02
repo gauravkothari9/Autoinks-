@@ -70,7 +70,7 @@ if (fs.existsSync(dist)) {
   app.get(/^\/(?!api|media).*/, (_req, res) => res.sendFile(path.join(dist, 'index.html')));
 } else {
   // API-only deployment (frontend on Vercel)
-  app.get('/', (_req, res) => res.json({ name: 'Stick Reels API', ok: true }));
+  app.get('/', (_req, res) => res.json({ name: 'Autoinks API', ok: true }));
 }
 
 app.use((err, _req, res, _next) => {
@@ -86,4 +86,4 @@ fs.mkdirSync(path.join(MEDIA_DIR, 'previews'), { recursive: true });
 fs.mkdirSync(path.join(MEDIA_DIR, 'music'), { recursive: true });
 await startQueue();
 await startScheduler();
-app.listen(config.port, config.host, () => console.log(`Stick Reels API on http://localhost:${config.port}`));
+app.listen(config.port, config.host, () => console.log(`Autoinks API on http://localhost:${config.port}`));

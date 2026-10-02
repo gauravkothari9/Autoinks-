@@ -38,7 +38,7 @@ h1, h2, h3, h4 { margin: 0; }
 }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 17px; letter-spacing: -0.01em; }
 .logo { display: block; height: 34px; width: auto; }
-.brand-accent { color: #048afc; } /* the blue from the Stick Reels logo */
+.brand-accent { color: #048afc; } /* the blue from the Autoinks logo */
 
 main { max-width: 1480px; margin: 0 auto; padding: 32px; }
 .hero h1 {
@@ -446,8 +446,8 @@ audio { width: 100%; height: 36px; color-scheme: dark; }
 }
 .auth-card h1 { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; }
 .auth-card > p { margin: -8px 0 4px; font-size: 13.5px; }
-.auth-brand { display: flex; justify-content: center; }
-.auth-brand img { height: 120px; width: auto; }
+.auth-brand { display: flex; flex-direction: column; align-items: center; gap: 10px; font-size: 30px; font-weight: 800; letter-spacing: -0.02em; }
+.auth-brand img { height: 90px; width: auto; }
 .auth-form { display: flex; flex-direction: column; gap: 14px; }
 .auth-footer { text-align: center; margin: 4px 0 0; font-size: 13px; }
 .password-field { position: relative; display: block; }

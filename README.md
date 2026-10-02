@@ -1,11 +1,11 @@
-# Stick Reels
+# Autoinks
 
-Stick Reels is a MERN platform that makes 2D stick-figure animation Shorts with Python and uploads them to YouTube automatically.
+Autoinks is a MERN platform that makes drawing Shorts with Python and uploads them to YouTube automatically.
 
 ```
 client/   React (Vite) UI: style cards, create panel, video library
 server/   Express + MongoDB API: job queue, metadata, YouTube OAuth + upload
-engine/   Python render engine: stick-figure scenes, Pillow frames, moviepy encode
+engine/   Python render engine: drawings, Pillow frames, moviepy encode
 media/    rendered videos, previews, and your uploaded music library (media/music)
 ```
 
@@ -13,32 +13,32 @@ media/    rendered videos, previews, and your uploaded music library (media/musi
 
 1. The user picks a style (or "Surprise me"). The server saves a `Job` in MongoDB.
 2. The queue runs `python -m engine.render` as a separate process.
-3. The chosen scene plans its choreography (moves, obstacles, shots, fails) from a random seed and palette. Each run gives a different video.
-4. Every frame is drawn from scratch with Pillow at 2× resolution and scaled down for anti-aliasing. `engine/frame.py` adds a neon glow and a one-line quote (from `engine/quotes.json`, never repeating recent ones).
+3. The chosen scene builds its picture (shapes, colors, positions, counts) from a random seed and palette. Each run gives a different video.
+4. Every frame is drawn with Pillow at 2× resolution and scaled down for anti-aliasing. `engine/frame.py` adds a one-line quote (from `engine/quotes.json`, never repeating recent ones).
 5. `engine/music.py` composes an original background track to the exact video length, in a mood that fits the style. moviepy then combines the frames and the track into a 1080×1920, 30 fps H.264/AAC MP4.
-6. The server builds the title, description and tags. Your own tags come first, then the style's tags, then high-volume tags such as `shorts` and `stickman`. The total is kept under YouTube's 500-character limit.
+6. The server builds the title, description and tags. Your own tags come first, then the style's tags, then high-volume tags such as `shorts`, `drawing` and `satisfying`. The total is kept under YouTube's 500-character limit.
 7. If auto-upload is on and a channel is connected, the video is uploaded through the YouTube Data API v3.
 
 ## Styles
 
-There are 52 stick-figure styles in 6 groups:
+There are 52 speed-drawing styles in 4 groups:
 
-| Group        | Styles |
-|--------------|--------|
-| Action       | Sword Duel, Staff Battle, Laser Duel, Kung Fu Fight, Boxing, One vs All, Parkour Run, Zombie Escape, Archery, Ninja Fruit, Laser Dodge |
-| Sports       | Hoops, Football Juggling, Penalty Kick, Skate Tricks, Snowboard, Sprint Race, Hurdles, Tennis, Ping Pong, Golf, Baseball, Cricket, Bowling, High Jump, Weightlifting, Trampoline |
-| Dance        | Dance Crew, Dance Battle, Breakdance, Moonwalk, Ballet, Robot Dance |
-| Fitness      | Workout, Abs Workout, HIIT, Pull-ups, Jump Rope, Yoga Flow, Tai Chi, Meditation |
-| Comedy       | Stick Fails, Cartoon Drops, Rake Trap, Wet Floor, Prank Wars |
-| Music & Life | Guitar Solo, Drummer, DJ Set, Pancake Chef, Lumberjack, Juggler |
+| Group           | Styles |
+|-----------------|--------|
+| Scenery         | Mountain Lake, Sunset Beach, Lighthouse, Cozy Cottage, Hot Air Balloon, Rocket Launch, Windmill, Campfire Night, Volcano, Fairy Castle, Sailboat, Rainbow Hills, Igloo Night, Pyramids, Mushroom House, Waterfall, Treehouse, City Night |
+| Animals         | Cute Cat, Night Owl, Koi Pond, Happy Whale, Butterfly, Little Fox, Penguin, Panda, Sea Turtle, Bunny, Happy Frog, Honey Bee, Snail, Octopus, Little Dino, Hedgehog, Jellyfish, Puppy |
+| Plants & Treats | Sunflower, Cactus, Ice Cream, Cupcake, Tulip Vase, Strawberries, Donut, Watermelon, Pizza Slice, Bonsai, Birthday Cake |
+| Things          | Little Car, Teacup, Gift Box, Guitar, Robot |
 
-`engine/stick.py` holds the shared toolkit: palettes, the posable `Figure` (joint angles for torso, head, arms and legs), walk and run cycles, keyframe blending and effects. The scenes live in `engine/scenes_*.py`. Some styles are variants of one scene with a parameter (for example Boxing is `kung_fu` with `mode="boxing"`); `engine/scenes.py` registers them with `functools.partial`.
+The pictures live in `engine/drawings.py` through `engine/drawings4.py`. Each is drawn on a sheet of paper: a pen inks the outlines, a marker colors each shape, a brush adds shading, then final touches. The finished picture gets a slow zoom and sparkles.
 
-**Action length** (Profile → Video settings) sets the main action; **Finale** adds time at the end for the win, bow or cheer.
+`engine/sketch.py` is the speed-drawing engine. A picture is a `Sketch` built back to front with `shape` (outline + fill), `line`, `shade` and `detail`. Outlines hidden behind a shape in front are clipped away, and each fill is masked by the shapes in front of it, so the reveal order never breaks the layering. On top of the picture's own random choices, every video gets a `Variant`: a mirrored layout half the time, a gentle hand-drawn warp of every shape, a color mood (natural, pastel, vivid, warm, cool, dusk or dreamy), and a different pen and paper. So the same style never comes out the same twice. `engine/art.py` holds the shared toolkit: palettes, the canvas, easing, vector shapes (circles, splines, clouds, stars) and backgrounds. A picture inside a frame sets `bounds`, so nothing spills past the frame edge.
+
+**Drawing length** (Profile → Video settings) sets how long the drawing takes; **Finale** adds time at the end that shows the finished picture.
 
 To add a style:
-1. Write a scene function `scene(rng, palette, duration)` that returns `draw(canvas, t)`. Make all random choices up front with `rng`.
-2. Add it to `SCENES` in `engine/scenes.py`.
+1. Write a scene function `scene(rng, palette, duration, hold)` that returns `draw(canvas, t)`. Make all random choices up front with `rng`. For a speed drawing, build a `Sketch` and return `sk.scene(duration, hold)`.
+2. Add it to `SCENES` in `engine/scenes.py`, and give it a music mood in `CATEGORY_MOODS` in `engine/music.py`.
 3. Add an entry to `engine/categories.json` with `id`, `name`, `group`, `description`, `hashtags` and `titles`.
 
 ## App pages
@@ -88,19 +88,18 @@ Every new Short gets background music. You set this in **Profile → Video setti
 
     | Mood    | Styles |
     |---------|--------|
-    | Epic    | sword, staff and laser duels, kung fu, boxing, one vs all, archery |
-    | Chase   | parkour, zombie escape, ninja fruit, laser dodge |
-    | Sporty  | ball sports, sprint, hurdles, high jump, trampoline |
-    | Rock    | skate, snowboard, guitar solo, drummer, lumberjack |
-    | Funky   | dance crew, dance battle, breakdance, moonwalk |
-    | Electro | robot dance, DJ set |
-    | Workout | workouts, HIIT, pull-ups, jump rope, weightlifting |
-    | Zen     | yoga, tai chi, meditation |
-    | Quirky  | all comedy styles, juggler |
-    | Chill   | golf, bowling, pancake chef |
-    | Elegant | ballet |
+    | Chill   | mountain lake, cottage, sunflower, cactus, windmill, tulip vase, pyramids, teacup |
+    | Upbeat  | sunset beach, hot air balloon, butterfly, ice cream, cupcake, rainbow hills, sailboat, strawberries, donut, watermelon, car, gift box |
+    | Quirky  | cute cat, owl, whale, fox, penguin, panda, bunny, frog, bee, snail, octopus |
+    | Calm    | lighthouse, koi pond, sea turtle |
+    | Cosmic  | rocket, igloo |
+    | Electro | spirograph, string art, harmonograph, lissajous, dragon curve |
+    | Zen     | mandala, flower of life, koch snowflake, golden spiral, star polygons |
+    | Dreamy  | fractal tree, rose curves, campfire, mushroom house |
+    | Epic    | volcano |
+    | Elegant | castle |
 
-    You can also pick one mood for every Short (the table above plus calm, dreamy, upbeat and cosmic), or random.
+    You can also pick one mood for every Short (any of the moods above, plus chase, sporty, rock and workout), or random.
   - Each track has a random key, chord progression and tempo within its mood's range.
   - Each mood is a genre recipe: drum grooves, a bass line, pads or chord stabs, an arpeggio and/or a repeating lead melody, and reverb. Tracks open with a one-bar intro, add a drum fill and crash every four bars, and end on the home chord during the finale.
   - The music is royalty-free, so it won't trigger YouTube Content ID claims.
@@ -139,7 +138,7 @@ cd server; npm start                      # http://localhost:5000
 
 For development with hot reload, run `npm run dev` in both `server/` and `client/`, then open http://localhost:5173.
 
-The first time the server starts, it renders a small looping preview for every style card. This takes about 1 minute in total.
+The first time the server starts, it renders a small looping preview for every style card. This takes a few minutes in total.
 
 ## Connecting YouTube
 
@@ -158,10 +157,10 @@ The default quota (10,000 units a day) allows about 6 uploads a day. Each upload
 ## Engine CLI
 
 ```powershell
-uv run python -m engine.render --category sword_duel --out media/test.mp4 --draw-seconds 20 --hold-seconds 3
+uv run python -m engine.render --category mountain_lake --out media/test.mp4 --draw-seconds 20 --hold-seconds 3
 # options: --seed, --palette, --width/--height, --fps, --glow, --crf, --hook "quote text", --no-hook,
 #          --music generated|library|off, --mood auto|random|epic|chase|sporty|rock|funky|electro|workout|zen|quirky|chill|elegant|calm|dreamy|upbeat|cosmic
-uv run python -m engine.music --out track.wav --duration 23 --mood epic      # just the music (or --category kung_fu)
+uv run python -m engine.music --out track.wav --duration 23 --mood epic      # just the music (or --category mandala)
 uv run python -m engine.add_music --video media/videos/x.mp4                # add music to an existing video
 ```
 

@@ -3,7 +3,7 @@ import { Job } from '../models/Job.js';
 import { Schedule } from '../models/Schedule.js';
 import { User } from '../models/User.js';
 import { hasPaidAccess, planOf, usage } from './plans.js';
-import { categories } from './categories.js';
+import { categories, categoryById } from './categories.js';
 import { kick, publishDueJobs } from './queue.js';
 
 const TICK_MS = 30 * 1000;
@@ -41,9 +41,11 @@ export async function upcomingSlots(userId, limit = 12) {
 }
 
 function pickCategory(schedule, index) {
-  const pool = schedule.categories.length ? schedule.categories : categories.map((c) => c.id);
+  // styles that no longer exist (renamed or removed) are skipped; if none are left, act as "any style"
+  const chosen = schedule.categories.filter((id) => categoryById[id]);
+  const pool = chosen.length ? chosen : categories.map((c) => c.id);
   // rotate through the chosen styles; with "any style" pick at random
-  return schedule.categories.length ? pool[index % pool.length] : pool[Math.floor(Math.random() * pool.length)];
+  return chosen.length ? pool[index % pool.length] : pool[Math.floor(Math.random() * pool.length)];
 }
 
 /**

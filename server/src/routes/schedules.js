@@ -23,8 +23,8 @@ function parse(body) {
   if (!times.length || times.length > 12 || !times.every((t) => TIME_RE.test(t))) return [null, 'Add 1-12 times as HH:MM'];
   const timezone = String(body.timezone || '');
   if (!DateTime.local().setZone(timezone).isValid) return [null, 'Unknown timezone'];
-  const categories = [...new Set(body.categories || [])];
-  if (!categories.every((c) => categoryById[c])) return [null, 'Unknown style in list'];
+  // Styles removed from the platform are dropped quietly, so old schedules can still be edited.
+  const categories = [...new Set(body.categories || [])].filter((c) => categoryById[c]);
   const privacy = ['public', 'unlisted', 'private'].includes(body.privacy) ? body.privacy : 'public';
   const perSlot = Math.max(1, Math.min(Number(body.perSlot) || 1, 3));
   return [{ name, days, times: times.sort(), timezone, categories, privacy, perSlot, enabled: body.enabled !== false }, null];
